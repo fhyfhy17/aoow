@@ -11,11 +11,13 @@ public abstract class FooAsync<T> extends FiberAsync<T, FooException> implements
 
     @Override
     public void success(T result) {
+        System.out.println("成功 = " + result);
         asyncCompleted(result);
     }
 
     @Override
     public void failure(FooException exception) {
+        System.out.println("失败 = " + exception.getMsg());
         asyncFailed(exception);
     }
 
